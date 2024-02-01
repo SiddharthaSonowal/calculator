@@ -7,6 +7,7 @@ numberInput.on("click", function (e) {
         console.log(e)
         clicked(e.target.id);
         $("#inNum").text(string);
+        firstTime = false;
         try { var evaluate = eval(string); }
         catch (error) {
             $(".result").text("Error").css("color", "red");
@@ -41,12 +42,14 @@ bracketInput.on("click", function (e) {
 $("#AC").on("click", function (e) {
     clicked(e.target.id);
     string = "";
+    firstTime = false
     $("#inNum").text("0");
     $(".result").text("")
 })
 
 $("#delete").on("click", function (e) {
     clicked(e.target.id);
+    firstTime = false
     string = string.slice(0, -1);
     $("#inNum").text(string);
     $(".result").text("")
